@@ -151,6 +151,7 @@ set ( SRCS "core/util/lnx/os_linux.cpp"
             "core/runtime/cache.cpp"
             "core/common/shared.cpp"
             "core/common/hsa_table_interface.cpp"
+            "core/common/hsaTracer.o"
             "loader/executable.cpp"
             "loader/loaders.cpp"
             "libamdhsacode/amd_elf_image.cpp"
@@ -168,7 +169,7 @@ set_property ( TARGET ${CORE_RUNTIME_TARGET} PROPERTY SOVERSION "${BUILD_VERSION
 
 target_link_libraries ( ${CORE_RUNTIME_TARGET}
   PRIVATE hsakmt
-  elf dl pthread rt
+  elf dl pthread rt dl lttng-ust
 )
 
 ## If the build is Release, strip the target library
