@@ -59,15 +59,18 @@ const HsaApiTable* hsa_table_interface_get_table() {
 
 
 hsa_status_t HSA_API hsa_init() {
-hsa_status_t tmp = coreApiTable->hsa_init_fn();
-tracepoint(hsaTracer, function_entry, "hsa_init");
-
+    tracepoint(hsaTracer, function_entry, "hsa_init");
+    hsa_status_t tmp = coreApiTable->hsa_init_fn();
+    tracepoint(hsaTracer, function_exit, "hsa_init");
 return tmp;}
+
 hsa_status_t HSA_API hsa_shut_down() {
-hsa_status_t tmp = coreApiTable->hsa_shut_down_fn();
-tracepoint(hsaTracer, function_entry, "hsa_shut_down");
+    tracepoint(hsaTracer, function_entry, "hsa_shut_down");
+    hsa_status_t tmp = coreApiTable->hsa_shut_down_fn();
+    tracepoint(hsaTracer, function_exit, "hsa_shut_down");
+    return tmp;
+}
 
-return tmp;}
 hsa_status_t HSA_API
     hsa_system_get_info(hsa_system_info_t attribute, void* value) {
 

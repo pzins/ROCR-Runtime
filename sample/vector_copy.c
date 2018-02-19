@@ -46,6 +46,7 @@
 #include <string.h>
 #include "hsa/hsa.h"
 #include "hsa/hsa_ext_finalize.h"
+#include "hsa/hsa_ven_amd_aqlprofile.h"
 
 #define check(msg, status) \
 if (status != HSA_STATUS_SUCCESS) { \
@@ -394,6 +395,18 @@ int main(int argc, char **argv) {
     header |= HSA_FENCE_SCOPE_SYSTEM << HSA_PACKET_HEADER_RELEASE_FENCE_SCOPE;
     header |= HSA_PACKET_TYPE_KERNEL_DISPATCH << HSA_PACKET_HEADER_TYPE;
 
+    hsa_ext_amd_aql_pm4_packet_t pm4;
+    hsa_status_t ret = hsa_ven_amd_aqlprofile_legacy_get_pm4(dispatch_packet, &pm4);
+    check(hsa_ven_amd_aqlprofile_start, ret);
+    dispatch_packet = pm4;
+    
+    hsa_ven_amd_aqlprofile_profile_t prof;
+
+    // hsa_ven_amd_aqlprofile_start(&prof , &pm4);
+    // check(hsa_ven_amd_aqlprofile_sart, ret);
+    
+    
+    
     __atomic_store_n((uint16_t*)(&dispatch_packet->header), header, __ATOMIC_RELEASE);
 
     /*
@@ -427,6 +440,10 @@ int main(int argc, char **argv) {
         printf("VALIDATION FAILED!\nBad index: %d\n", fail_index);
     }
 
+    // ret = hsa_ven_amd_aqlprofile_stop(&prof , &pm4);
+    // check(hsa_ven_amd_aqlprofile_stop, ret);
+    
+    
     /*
      * Cleanup all allocated resources.
      */
