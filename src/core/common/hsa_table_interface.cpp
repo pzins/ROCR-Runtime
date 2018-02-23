@@ -59,34 +59,34 @@ const HsaApiTable* hsa_table_interface_get_table() {
 
 
 hsa_status_t HSA_API hsa_init() {
-    tracepoint(hsaTracer, function_entry, "hsa_init");
+    tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_init");
     hsa_status_t tmp = coreApiTable->hsa_init_fn();
-    tracepoint(hsaTracer, function_exit, "hsa_init");
+    tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_init");
 return tmp;}
 
 hsa_status_t HSA_API hsa_shut_down() {
-    tracepoint(hsaTracer, function_entry, "hsa_shut_down");
+    tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_shut_down");
     hsa_status_t tmp = coreApiTable->hsa_shut_down_fn();
-    tracepoint(hsaTracer, function_exit, "hsa_shut_down");
+    tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_shut_down");
     return tmp;
 }
 
 hsa_status_t HSA_API
     hsa_system_get_info(hsa_system_info_t attribute, void* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_system_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_system_get_info");
 hsa_status_t tmp = coreApiTable->hsa_system_get_info_fn(attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_system_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_system_get_info");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_extension_get_name(uint16_t extension, const char** name) {
 
-tracepoint(hsaTracer, function_entry, "hsa_extension_get_name");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_extension_get_name");
 hsa_status_t tmp = coreApiTable->hsa_extension_get_name_fn(extension, name);
 
-tracepoint(hsaTracer, function_exit, "hsa_extension_get_name");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_extension_get_name");
 return tmp; 
 }
 
@@ -94,11 +94,11 @@ hsa_status_t HSA_API
     hsa_system_extension_supported(uint16_t extension, uint16_t version_major,
                                    uint16_t version_minor, bool* result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_system_extension_supported");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_system_extension_supported");
 hsa_status_t tmp = coreApiTable->hsa_system_extension_supported_fn(
       extension, version_major, version_minor, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_system_extension_supported");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_system_extension_supported");
 return tmp; 
 }
 
@@ -106,22 +106,22 @@ hsa_status_t HSA_API hsa_system_major_extension_supported(uint16_t extension,
                                                           uint16_t version_major,
                                                           uint16_t* version_minor, bool* result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_system_major_extension_supported");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_system_major_extension_supported");
 hsa_status_t tmp = coreApiTable->hsa_system_major_extension_supported_fn(extension, version_major,
                                                                version_minor, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_system_major_extension_supported");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_system_major_extension_supported");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_system_get_extension_table(uint16_t extension, uint16_t version_major,
                                                     uint16_t version_minor, void* table) {
 
-tracepoint(hsaTracer, function_entry, "hsa_system_get_extension_table");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_system_get_extension_table");
 hsa_status_t tmp = coreApiTable->hsa_system_get_extension_table_fn(
       extension, version_major, version_minor, table);
 
-tracepoint(hsaTracer, function_exit, "hsa_system_get_extension_table");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_system_get_extension_table");
 return tmp; 
 }
 
@@ -129,11 +129,11 @@ hsa_status_t HSA_API hsa_system_get_major_extension_table(uint16_t extension,
                                                           uint16_t version_major,
                                                           size_t table_length, void* table) {
 
-tracepoint(hsaTracer, function_entry, "hsa_system_get_major_extension_table");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_system_get_major_extension_table");
 hsa_status_t tmp = coreApiTable->hsa_system_get_major_extension_table_fn(extension, version_major,
                                                                table_length, table);
 
-tracepoint(hsaTracer, function_exit, "hsa_system_get_major_extension_table");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_system_get_major_extension_table");
 return tmp; 
 }
 
@@ -141,10 +141,10 @@ hsa_status_t HSA_API
     hsa_iterate_agents(hsa_status_t (*callback)(hsa_agent_t agent, void* data),
                        void* data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_iterate_agents");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_iterate_agents");
 hsa_status_t tmp = coreApiTable->hsa_iterate_agents_fn(callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_iterate_agents");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_iterate_agents");
 return tmp; 
 }
 
@@ -152,10 +152,10 @@ hsa_status_t HSA_API hsa_agent_get_info(hsa_agent_t agent,
                                         hsa_agent_info_t attribute,
                                         void* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_agent_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_agent_get_info");
 hsa_status_t tmp = coreApiTable->hsa_agent_get_info_fn(agent, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_agent_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_agent_get_info");
 return tmp; 
 }
 
@@ -163,30 +163,30 @@ hsa_status_t HSA_API hsa_agent_get_exception_policies(hsa_agent_t agent,
                                                       hsa_profile_t profile,
                                                       uint16_t* mask) {
 
-tracepoint(hsaTracer, function_entry, "hsa_agent_get_exception_policies");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_agent_get_exception_policies");
 hsa_status_t tmp = coreApiTable->hsa_agent_get_exception_policies_fn(agent, profile, mask);
 
-tracepoint(hsaTracer, function_exit, "hsa_agent_get_exception_policies");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_agent_get_exception_policies");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_cache_get_info(hsa_cache_t cache, hsa_cache_info_t attribute,
                                         void* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_cache_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_cache_get_info");
 hsa_status_t tmp = coreApiTable->hsa_cache_get_info_fn(cache, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_cache_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_cache_get_info");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_agent_iterate_caches(
     hsa_agent_t agent, hsa_status_t (*callback)(hsa_cache_t cache, void* data), void* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_agent_iterate_caches");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_agent_iterate_caches");
 hsa_status_t tmp = coreApiTable->hsa_agent_iterate_caches_fn(agent, callback, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_agent_iterate_caches");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_agent_iterate_caches");
 return tmp; 
 }
 
@@ -195,11 +195,11 @@ hsa_status_t HSA_API
                                   uint16_t version_major,
                                   uint16_t version_minor, bool* result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_agent_extension_supported");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_agent_extension_supported");
 hsa_status_t tmp = coreApiTable->hsa_agent_extension_supported_fn(
       extension, agent, version_major, version_minor, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_agent_extension_supported");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_agent_extension_supported");
 return tmp; 
 }
 
@@ -207,11 +207,11 @@ hsa_status_t HSA_API hsa_agent_major_extension_supported(uint16_t extension, hsa
                                                          uint16_t version_major,
                                                          uint16_t* version_minor, bool* result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_agent_major_extension_supported");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_agent_major_extension_supported");
 hsa_status_t tmp = coreApiTable->hsa_agent_major_extension_supported_fn(extension, agent, version_major,
                                                               version_minor, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_agent_major_extension_supported");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_agent_major_extension_supported");
 return tmp; 
 }
 
@@ -222,12 +222,12 @@ hsa_status_t HSA_API
                      void* data, uint32_t private_segment_size,
                      uint32_t group_segment_size, hsa_queue_t** queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_create");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_create");
 hsa_status_t tmp = coreApiTable->hsa_queue_create_fn(agent, size, type, callback, data,
                                           private_segment_size,
                                           group_segment_size, queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_create");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_create");
 return tmp; 
 }
 
@@ -236,104 +236,104 @@ hsa_status_t HSA_API
                           hsa_queue_type32_t type, uint32_t features,
                           hsa_signal_t completion_signal, hsa_queue_t** queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_soft_queue_create");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_soft_queue_create");
 hsa_status_t tmp = coreApiTable->hsa_soft_queue_create_fn(region, size, type, features,
                                                completion_signal, queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_soft_queue_create");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_soft_queue_create");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_queue_destroy(hsa_queue_t* queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_destroy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_destroy");
 hsa_status_t tmp = coreApiTable->hsa_queue_destroy_fn(queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_destroy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_destroy");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_queue_inactivate(hsa_queue_t* queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_inactivate");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_inactivate");
 hsa_status_t tmp = coreApiTable->hsa_queue_inactivate_fn(queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_inactivate");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_inactivate");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_load_read_index_scacquire(const hsa_queue_t* queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_load_read_index_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_load_read_index_scacquire");
 uint64_t tmp = coreApiTable->hsa_queue_load_read_index_scacquire_fn(queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_load_read_index_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_load_read_index_scacquire");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_load_read_index_relaxed(const hsa_queue_t* queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_load_read_index_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_load_read_index_relaxed");
 uint64_t tmp = coreApiTable->hsa_queue_load_read_index_relaxed_fn(queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_load_read_index_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_load_read_index_relaxed");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_load_write_index_scacquire(const hsa_queue_t* queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_load_write_index_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_load_write_index_scacquire");
 uint64_t tmp = coreApiTable->hsa_queue_load_write_index_scacquire_fn(queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_load_write_index_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_load_write_index_scacquire");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_load_write_index_relaxed(const hsa_queue_t* queue) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_load_write_index_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_load_write_index_relaxed");
 uint64_t tmp = coreApiTable->hsa_queue_load_write_index_relaxed_fn(queue);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_load_write_index_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_load_write_index_relaxed");
 return tmp; 
 }
 
 void HSA_API hsa_queue_store_write_index_relaxed(const hsa_queue_t* queue,
                                                  uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_store_write_index_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_store_write_index_relaxed");
 coreApiTable->hsa_queue_store_write_index_relaxed_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_store_write_index_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_store_write_index_relaxed");
 
 }
 
 void HSA_API hsa_queue_store_write_index_screlease(const hsa_queue_t* queue, uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_store_write_index_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_store_write_index_screlease");
 coreApiTable->hsa_queue_store_write_index_screlease_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_store_write_index_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_store_write_index_screlease");
 
 }
 
 uint64_t HSA_API hsa_queue_cas_write_index_scacq_screl(const hsa_queue_t* queue, uint64_t expected,
                                                        uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_cas_write_index_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_cas_write_index_scacq_screl");
 uint64_t tmp = coreApiTable->hsa_queue_cas_write_index_scacq_screl_fn(queue, expected, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_cas_write_index_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_cas_write_index_scacq_screl");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_cas_write_index_scacquire(const hsa_queue_t* queue, uint64_t expected,
                                                      uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_cas_write_index_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_cas_write_index_scacquire");
 uint64_t tmp = coreApiTable->hsa_queue_cas_write_index_scacquire_fn(queue, expected, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_cas_write_index_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_cas_write_index_scacquire");
 return tmp; 
 }
 
@@ -341,77 +341,77 @@ uint64_t HSA_API hsa_queue_cas_write_index_relaxed(const hsa_queue_t* queue,
                                                    uint64_t expected,
                                                    uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_cas_write_index_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_cas_write_index_relaxed");
 uint64_t tmp = coreApiTable->hsa_queue_cas_write_index_relaxed_fn(queue, expected,
                                                            value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_cas_write_index_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_cas_write_index_relaxed");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_cas_write_index_screlease(const hsa_queue_t* queue, uint64_t expected,
                                                      uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_cas_write_index_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_cas_write_index_screlease");
 uint64_t tmp = coreApiTable->hsa_queue_cas_write_index_screlease_fn(queue, expected, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_cas_write_index_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_cas_write_index_screlease");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_add_write_index_scacq_screl(const hsa_queue_t* queue, uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_add_write_index_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_add_write_index_scacq_screl");
 uint64_t tmp = coreApiTable->hsa_queue_add_write_index_scacq_screl_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_add_write_index_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_add_write_index_scacq_screl");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_add_write_index_scacquire(const hsa_queue_t* queue, uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_add_write_index_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_add_write_index_scacquire");
 uint64_t tmp = coreApiTable->hsa_queue_add_write_index_scacquire_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_add_write_index_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_add_write_index_scacquire");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_add_write_index_relaxed(const hsa_queue_t* queue,
                                                    uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_add_write_index_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_add_write_index_relaxed");
 uint64_t tmp = coreApiTable->hsa_queue_add_write_index_relaxed_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_add_write_index_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_add_write_index_relaxed");
 return tmp; 
 }
 
 uint64_t HSA_API hsa_queue_add_write_index_screlease(const hsa_queue_t* queue, uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_add_write_index_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_add_write_index_screlease");
 uint64_t tmp = coreApiTable->hsa_queue_add_write_index_screlease_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_add_write_index_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_add_write_index_screlease");
 return tmp; 
 }
 
 void HSA_API hsa_queue_store_read_index_relaxed(const hsa_queue_t* queue,
                                                 uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_store_read_index_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_store_read_index_relaxed");
 coreApiTable->hsa_queue_store_read_index_relaxed_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_store_read_index_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_store_read_index_relaxed");
 
 }
 
 void HSA_API hsa_queue_store_read_index_screlease(const hsa_queue_t* queue, uint64_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_queue_store_read_index_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_queue_store_read_index_screlease");
 coreApiTable->hsa_queue_store_read_index_screlease_fn(queue, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_queue_store_read_index_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_queue_store_read_index_screlease");
 
 }
 
@@ -419,10 +419,10 @@ hsa_status_t HSA_API hsa_agent_iterate_regions(
     hsa_agent_t agent,
     hsa_status_t (*callback)(hsa_region_t region, void* data), void* data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_agent_iterate_regions");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_agent_iterate_regions");
 hsa_status_t tmp = coreApiTable->hsa_agent_iterate_regions_fn(agent, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_agent_iterate_regions");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_agent_iterate_regions");
 return tmp; 
 }
 
@@ -430,66 +430,66 @@ hsa_status_t HSA_API hsa_region_get_info(hsa_region_t region,
                                          hsa_region_info_t attribute,
                                          void* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_region_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_region_get_info");
 hsa_status_t tmp = coreApiTable->hsa_region_get_info_fn(region, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_region_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_region_get_info");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_memory_register(void* address, size_t size) {
 
-tracepoint(hsaTracer, function_entry, "hsa_memory_register");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_memory_register");
 hsa_status_t tmp = coreApiTable->hsa_memory_register_fn(address, size);
 
-tracepoint(hsaTracer, function_exit, "hsa_memory_register");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_memory_register");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_memory_deregister(void* address, size_t size) {
 
-tracepoint(hsaTracer, function_entry, "hsa_memory_deregister");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_memory_deregister");
 hsa_status_t tmp = coreApiTable->hsa_memory_deregister_fn(address, size);
 
-tracepoint(hsaTracer, function_exit, "hsa_memory_deregister");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_memory_deregister");
 return tmp; 
 }
 
 hsa_status_t HSA_API
     hsa_memory_allocate(hsa_region_t region, size_t size, void** ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_memory_allocate");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_memory_allocate");
 hsa_status_t tmp = coreApiTable->hsa_memory_allocate_fn(region, size, ptr);
 
-tracepoint(hsaTracer, function_exit, "hsa_memory_allocate");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_memory_allocate");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_memory_free(void* ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_memory_free");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_memory_free");
 hsa_status_t tmp = coreApiTable->hsa_memory_free_fn(ptr);
 
-tracepoint(hsaTracer, function_exit, "hsa_memory_free");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_memory_free");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_memory_copy(void* dst, const void* src, size_t size) {
 
-tracepoint(hsaTracer, function_entry, "hsa_memory_copy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_memory_copy");
 hsa_status_t tmp = coreApiTable->hsa_memory_copy_fn(dst, src, size);
 
-tracepoint(hsaTracer, function_exit, "hsa_memory_copy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_memory_copy");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_memory_assign_agent(void* ptr, hsa_agent_t agent,
                                              hsa_access_permission_t access) {
 
-tracepoint(hsaTracer, function_entry, "hsa_memory_assign_agent");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_memory_assign_agent");
 hsa_status_t tmp = coreApiTable->hsa_memory_assign_agent_fn(ptr, agent, access);
 
-tracepoint(hsaTracer, function_exit, "hsa_memory_assign_agent");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_memory_assign_agent");
 return tmp; 
 }
 
@@ -497,75 +497,75 @@ hsa_status_t HSA_API
     hsa_signal_create(hsa_signal_value_t initial_value, uint32_t num_consumers,
                       const hsa_agent_t* consumers, hsa_signal_t* signal) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_create");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_create");
 hsa_status_t tmp = coreApiTable->hsa_signal_create_fn(initial_value, num_consumers,
                                            consumers, signal);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_create");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_create");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_signal_destroy(hsa_signal_t signal) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_destroy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_destroy");
 hsa_status_t tmp = coreApiTable->hsa_signal_destroy_fn(signal);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_destroy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_destroy");
 return tmp; 
 }
 
 hsa_signal_value_t HSA_API hsa_signal_load_relaxed(hsa_signal_t signal) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_load_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_load_relaxed");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_load_relaxed_fn(signal);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_load_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_load_relaxed");
 return tmp; 
 }
 
 hsa_signal_value_t HSA_API hsa_signal_load_scacquire(hsa_signal_t signal) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_load_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_load_scacquire");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_load_scacquire_fn(signal);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_load_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_load_scacquire");
 return tmp; 
 }
 
 void HSA_API
     hsa_signal_store_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_store_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_store_relaxed");
 coreApiTable->hsa_signal_store_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_store_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_store_relaxed");
 
 }
 
 void HSA_API hsa_signal_store_screlease(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_store_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_store_screlease");
 coreApiTable->hsa_signal_store_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_store_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_store_screlease");
 
 }
 
 void HSA_API hsa_signal_silent_store_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_silent_store_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_silent_store_relaxed");
 coreApiTable->hsa_signal_silent_store_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_silent_store_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_silent_store_relaxed");
 
 }
 
 void HSA_API hsa_signal_silent_store_screlease(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_silent_store_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_silent_store_screlease");
 coreApiTable->hsa_signal_silent_store_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_silent_store_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_silent_store_screlease");
 
 }
 
@@ -576,11 +576,11 @@ hsa_signal_value_t HSA_API
                             uint64_t timeout_hint,
                             hsa_wait_state_t wait_expectancy_hint) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_wait_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_wait_relaxed");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_wait_relaxed_fn(
       signal, condition, compare_value, timeout_hint, wait_expectancy_hint);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_wait_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_wait_relaxed");
 return tmp; 
 }
 
@@ -590,11 +590,11 @@ hsa_signal_value_t HSA_API hsa_signal_wait_scacquire(hsa_signal_t signal,
                                                      uint64_t timeout_hint,
                                                      hsa_wait_state_t wait_expectancy_hint) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_wait_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_wait_scacquire");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_wait_scacquire_fn(signal, condition, compare_value, timeout_hint,
                                                     wait_expectancy_hint);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_wait_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_wait_scacquire");
 return tmp; 
 }
 
@@ -602,20 +602,20 @@ hsa_status_t HSA_API hsa_signal_group_create(uint32_t num_signals, const hsa_sig
                                              uint32_t num_consumers, const hsa_agent_t* consumers,
                                              hsa_signal_group_t* signal_group) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_group_create");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_group_create");
 hsa_status_t tmp = coreApiTable->hsa_signal_group_create_fn(num_signals, signals, num_consumers, consumers,
                                                   signal_group);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_group_create");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_group_create");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_signal_group_destroy(hsa_signal_group_t signal_group) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_group_destroy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_group_destroy");
 hsa_status_t tmp = coreApiTable->hsa_signal_group_destroy_fn(signal_group);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_group_destroy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_group_destroy");
 return tmp; 
 }
 
@@ -626,11 +626,11 @@ hsa_status_t HSA_API hsa_signal_group_wait_any_relaxed(hsa_signal_group_t signal
                                                        hsa_signal_t* signal,
                                                        hsa_signal_value_t* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_group_wait_any_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_group_wait_any_relaxed");
 hsa_status_t tmp = coreApiTable->hsa_signal_group_wait_any_relaxed_fn(
       signal_group, conditions, compare_values, wait_state_hint, signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_group_wait_any_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_group_wait_any_relaxed");
 return tmp; 
 }
 
@@ -641,236 +641,236 @@ hsa_status_t HSA_API hsa_signal_group_wait_any_scacquire(hsa_signal_group_t sign
                                                          hsa_signal_t* signal,
                                                          hsa_signal_value_t* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_group_wait_any_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_group_wait_any_scacquire");
 hsa_status_t tmp = coreApiTable->hsa_signal_group_wait_any_scacquire_fn(
       signal_group, conditions, compare_values, wait_state_hint, signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_group_wait_any_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_group_wait_any_scacquire");
 return tmp; 
 }
 
 void HSA_API
     hsa_signal_and_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_and_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_and_relaxed");
 coreApiTable->hsa_signal_and_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_and_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_and_relaxed");
 
 }
 
 void HSA_API hsa_signal_and_scacquire(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_and_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_and_scacquire");
 coreApiTable->hsa_signal_and_scacquire_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_and_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_and_scacquire");
 
 }
 
 void HSA_API hsa_signal_and_screlease(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_and_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_and_screlease");
 coreApiTable->hsa_signal_and_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_and_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_and_screlease");
 
 }
 
 void HSA_API hsa_signal_and_scacq_screl(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_and_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_and_scacq_screl");
 coreApiTable->hsa_signal_and_scacq_screl_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_and_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_and_scacq_screl");
 
 }
 
 void HSA_API
     hsa_signal_or_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_or_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_or_relaxed");
 coreApiTable->hsa_signal_or_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_or_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_or_relaxed");
 
 }
 
 void HSA_API hsa_signal_or_scacquire(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_or_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_or_scacquire");
 coreApiTable->hsa_signal_or_scacquire_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_or_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_or_scacquire");
 
 }
 
 void HSA_API hsa_signal_or_screlease(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_or_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_or_screlease");
 coreApiTable->hsa_signal_or_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_or_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_or_screlease");
 
 }
 
 void HSA_API hsa_signal_or_scacq_screl(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_or_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_or_scacq_screl");
 coreApiTable->hsa_signal_or_scacq_screl_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_or_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_or_scacq_screl");
 
 }
 
 void HSA_API
     hsa_signal_xor_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_xor_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_xor_relaxed");
 coreApiTable->hsa_signal_xor_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_xor_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_xor_relaxed");
 
 }
 
 void HSA_API hsa_signal_xor_scacquire(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_xor_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_xor_scacquire");
 coreApiTable->hsa_signal_xor_scacquire_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_xor_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_xor_scacquire");
 
 }
 
 void HSA_API hsa_signal_xor_screlease(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_xor_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_xor_screlease");
 coreApiTable->hsa_signal_xor_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_xor_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_xor_screlease");
 
 }
 
 void HSA_API hsa_signal_xor_scacq_screl(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_xor_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_xor_scacq_screl");
 coreApiTable->hsa_signal_xor_scacq_screl_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_xor_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_xor_scacq_screl");
 
 }
 
 void HSA_API
     hsa_signal_add_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_add_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_add_relaxed");
 coreApiTable->hsa_signal_add_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_add_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_add_relaxed");
 
 }
 
 void HSA_API hsa_signal_add_scacquire(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_add_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_add_scacquire");
 coreApiTable->hsa_signal_add_scacquire_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_add_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_add_scacquire");
 
 }
 
 void HSA_API hsa_signal_add_screlease(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_add_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_add_screlease");
 coreApiTable->hsa_signal_add_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_add_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_add_screlease");
 
 }
 
 void HSA_API hsa_signal_add_scacq_screl(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_add_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_add_scacq_screl");
 coreApiTable->hsa_signal_add_scacq_screl_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_add_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_add_scacq_screl");
 
 }
 
 void HSA_API
     hsa_signal_subtract_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_subtract_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_subtract_relaxed");
 coreApiTable->hsa_signal_subtract_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_subtract_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_subtract_relaxed");
 
 }
 
 void HSA_API hsa_signal_subtract_scacquire(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_subtract_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_subtract_scacquire");
 coreApiTable->hsa_signal_subtract_scacquire_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_subtract_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_subtract_scacquire");
 
 }
 
 void HSA_API hsa_signal_subtract_screlease(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_subtract_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_subtract_screlease");
 coreApiTable->hsa_signal_subtract_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_subtract_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_subtract_screlease");
 
 }
 
 void HSA_API hsa_signal_subtract_scacq_screl(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_subtract_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_subtract_scacq_screl");
 coreApiTable->hsa_signal_subtract_scacq_screl_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_subtract_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_subtract_scacq_screl");
 
 }
 
 hsa_signal_value_t HSA_API
     hsa_signal_exchange_relaxed(hsa_signal_t signal, hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_exchange_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_exchange_relaxed");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_exchange_relaxed_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_exchange_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_exchange_relaxed");
 return tmp; 
 }
 
 hsa_signal_value_t HSA_API hsa_signal_exchange_scacquire(hsa_signal_t signal,
                                                          hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_exchange_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_exchange_scacquire");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_exchange_scacquire_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_exchange_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_exchange_scacquire");
 return tmp; 
 }
 
 hsa_signal_value_t HSA_API hsa_signal_exchange_screlease(hsa_signal_t signal,
                                                          hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_exchange_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_exchange_screlease");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_exchange_screlease_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_exchange_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_exchange_screlease");
 return tmp; 
 }
 
 hsa_signal_value_t HSA_API hsa_signal_exchange_scacq_screl(hsa_signal_t signal,
                                                            hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_exchange_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_exchange_scacq_screl");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_exchange_scacq_screl_fn(signal, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_exchange_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_exchange_scacq_screl");
 return tmp; 
 }
 
@@ -878,10 +878,10 @@ hsa_signal_value_t HSA_API hsa_signal_cas_relaxed(hsa_signal_t signal,
                                                   hsa_signal_value_t expected,
                                                   hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_cas_relaxed");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_cas_relaxed");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_cas_relaxed_fn(signal, expected, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_cas_relaxed");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_cas_relaxed");
 return tmp; 
 }
 
@@ -889,10 +889,10 @@ hsa_signal_value_t HSA_API hsa_signal_cas_scacquire(hsa_signal_t signal,
                                                     hsa_signal_value_t expected,
                                                     hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_cas_scacquire");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_cas_scacquire");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_cas_scacquire_fn(signal, expected, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_cas_scacquire");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_cas_scacquire");
 return tmp; 
 }
 
@@ -900,10 +900,10 @@ hsa_signal_value_t HSA_API hsa_signal_cas_screlease(hsa_signal_t signal,
                                                     hsa_signal_value_t expected,
                                                     hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_cas_screlease");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_cas_screlease");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_cas_screlease_fn(signal, expected, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_cas_screlease");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_cas_screlease");
 return tmp; 
 }
 
@@ -911,10 +911,10 @@ hsa_signal_value_t HSA_API hsa_signal_cas_scacq_screl(hsa_signal_t signal,
                                                       hsa_signal_value_t expected,
                                                       hsa_signal_value_t value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_signal_cas_scacq_screl");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_signal_cas_scacq_screl");
 hsa_signal_value_t tmp = coreApiTable->hsa_signal_cas_scacq_screl_fn(signal, expected, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_signal_cas_scacq_screl");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_signal_cas_scacq_screl");
 return tmp; 
 }
 
@@ -922,10 +922,10 @@ hsa_status_t HSA_API hsa_isa_from_name(
     const char *name,
     hsa_isa_t *isa) {
 
-tracepoint(hsaTracer, function_entry, "hsa_isa_from_name");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_isa_from_name");
 hsa_status_t tmp = coreApiTable->hsa_isa_from_name_fn(name, isa);
 
-tracepoint(hsaTracer, function_exit, "hsa_isa_from_name");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_isa_from_name");
 return tmp; 
 }
 
@@ -935,10 +935,10 @@ hsa_status_t HSA_API hsa_agent_iterate_isas(
                              void *data),
     void *data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_agent_iterate_isas");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_agent_iterate_isas");
 hsa_status_t tmp = coreApiTable->hsa_agent_iterate_isas_fn(agent, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_agent_iterate_isas");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_agent_iterate_isas");
 return tmp; 
 }
 
@@ -948,10 +948,10 @@ return tmp;
     uint32_t index,
     void *value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_isa_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_isa_get_info");
 hsa_status_t tmp = coreApiTable->hsa_isa_get_info_fn(isa, attribute, index, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_isa_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_isa_get_info");
 return tmp; 
 }
 
@@ -960,10 +960,10 @@ hsa_status_t HSA_API hsa_isa_get_info_alt(
     hsa_isa_info_t attribute,
     void *value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_isa_get_info_alt");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_isa_get_info_alt");
 hsa_status_t tmp = coreApiTable->hsa_isa_get_info_alt_fn(isa, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_isa_get_info_alt");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_isa_get_info_alt");
 return tmp; 
 }
 
@@ -972,10 +972,10 @@ hsa_status_t HSA_API hsa_isa_get_exception_policies(
     hsa_profile_t profile,
     uint16_t *mask) {
 
-tracepoint(hsaTracer, function_entry, "hsa_isa_get_exception_policies");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_isa_get_exception_policies");
 hsa_status_t tmp = coreApiTable->hsa_isa_get_exception_policies_fn(isa, profile, mask);
 
-tracepoint(hsaTracer, function_exit, "hsa_isa_get_exception_policies");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_isa_get_exception_policies");
 return tmp; 
 }
 
@@ -985,11 +985,11 @@ hsa_status_t HSA_API hsa_isa_get_round_method(
     hsa_flush_mode_t flush_mode,
     hsa_round_method_t *round_method) {
 
-tracepoint(hsaTracer, function_entry, "hsa_isa_get_round_method");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_isa_get_round_method");
 hsa_status_t tmp = coreApiTable->hsa_isa_get_round_method_fn(
       isa, fp_type, flush_mode, round_method);
 
-tracepoint(hsaTracer, function_exit, "hsa_isa_get_round_method");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_isa_get_round_method");
 return tmp; 
 }
 
@@ -998,10 +998,10 @@ hsa_status_t HSA_API hsa_wavefront_get_info(
     hsa_wavefront_info_t attribute,
     void *value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_wavefront_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_wavefront_get_info");
 hsa_status_t tmp = coreApiTable->hsa_wavefront_get_info_fn(wavefront, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_wavefront_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_wavefront_get_info");
 return tmp; 
 }
 
@@ -1011,10 +1011,10 @@ hsa_status_t HSA_API hsa_isa_iterate_wavefronts(
                              void *data),
     void *data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_isa_iterate_wavefronts");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_isa_iterate_wavefronts");
 hsa_status_t tmp = coreApiTable->hsa_isa_iterate_wavefronts_fn(isa, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_isa_iterate_wavefronts");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_isa_iterate_wavefronts");
 return tmp; 
 }
 
@@ -1023,11 +1023,11 @@ return tmp;
     hsa_isa_t agent_isa,
     bool *result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_isa_compatible");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_isa_compatible");
 hsa_status_t tmp = coreApiTable->hsa_isa_compatible_fn(
       code_object_isa, agent_isa, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_isa_compatible");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_isa_compatible");
 return tmp; 
 }
 
@@ -1041,12 +1041,12 @@ return tmp;
     void **serialized_code_object,
     size_t *serialized_code_object_size) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_serialize");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_serialize");
 hsa_status_t tmp = coreApiTable->hsa_code_object_serialize_fn(
       code_object, alloc_callback, callback_data, options,
       serialized_code_object, serialized_code_object_size);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_serialize");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_serialize");
 return tmp; 
 }
 
@@ -1056,22 +1056,22 @@ return tmp;
     const char *options,
     hsa_code_object_t *code_object) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_deserialize");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_deserialize");
 hsa_status_t tmp = coreApiTable->hsa_code_object_deserialize_fn(
       serialized_code_object, serialized_code_object_size, options,
       code_object);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_deserialize");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_deserialize");
 return tmp; 
 }
 
 /* deprecated */ hsa_status_t HSA_API hsa_code_object_destroy(
     hsa_code_object_t code_object) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_destroy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_destroy");
 hsa_status_t tmp = coreApiTable->hsa_code_object_destroy_fn(code_object);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_destroy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_destroy");
 return tmp; 
 }
 
@@ -1080,11 +1080,11 @@ return tmp;
     hsa_code_object_info_t attribute,
     void *value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_get_info");
 hsa_status_t tmp = coreApiTable->hsa_code_object_get_info_fn(
       code_object, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_get_info");
 return tmp; 
 }
 
@@ -1093,11 +1093,11 @@ return tmp;
     const char *symbol_name,
     hsa_code_symbol_t *symbol) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_get_symbol");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_get_symbol");
 hsa_status_t tmp = coreApiTable->hsa_code_object_get_symbol_fn(
       code_object, symbol_name, symbol);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_get_symbol");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_get_symbol");
 return tmp; 
 }
 
@@ -1107,11 +1107,11 @@ return tmp;
     const char *symbol_name,
     hsa_code_symbol_t *symbol) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_get_symbol_from_name");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_get_symbol_from_name");
 hsa_status_t tmp = coreApiTable->hsa_code_object_get_symbol_from_name_fn(
       code_object, module_name, symbol_name, symbol);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_get_symbol_from_name");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_get_symbol_from_name");
 return tmp; 
 }
 
@@ -1120,11 +1120,11 @@ return tmp;
     hsa_code_symbol_info_t attribute,
     void *value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_symbol_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_symbol_get_info");
 hsa_status_t tmp = coreApiTable->hsa_code_symbol_get_info_fn(
       code_symbol, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_symbol_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_symbol_get_info");
 return tmp; 
 }
 
@@ -1135,11 +1135,11 @@ return tmp;
                              void *data),
     void *data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_iterate_symbols");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_iterate_symbols");
 hsa_status_t tmp = coreApiTable->hsa_code_object_iterate_symbols_fn(
       code_object, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_iterate_symbols");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_iterate_symbols");
 return tmp; 
 }
 
@@ -1147,11 +1147,11 @@ hsa_status_t HSA_API hsa_code_object_reader_create_from_file(
     hsa_file_t file,
     hsa_code_object_reader_t *code_object_reader) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_reader_create_from_file");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_reader_create_from_file");
 hsa_status_t tmp = coreApiTable->hsa_code_object_reader_create_from_file_fn(
       file, code_object_reader);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_reader_create_from_file");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_reader_create_from_file");
 return tmp; 
 }
 
@@ -1160,21 +1160,21 @@ hsa_status_t HSA_API hsa_code_object_reader_create_from_memory(
     size_t size,
     hsa_code_object_reader_t *code_object_reader) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_reader_create_from_memory");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_reader_create_from_memory");
 hsa_status_t tmp = coreApiTable->hsa_code_object_reader_create_from_memory_fn(
       code_object, size, code_object_reader);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_reader_create_from_memory");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_reader_create_from_memory");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_code_object_reader_destroy(
     hsa_code_object_reader_t code_object_reader) {
 
-tracepoint(hsaTracer, function_entry, "hsa_code_object_reader_destroy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_code_object_reader_destroy");
 hsa_status_t tmp = coreApiTable->hsa_code_object_reader_destroy_fn(code_object_reader);
 
-tracepoint(hsaTracer, function_exit, "hsa_code_object_reader_destroy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_code_object_reader_destroy");
 return tmp; 
 }
 
@@ -1184,11 +1184,11 @@ return tmp;
     const char *options,
     hsa_executable_t *executable) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_create");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_create");
 hsa_status_t tmp = coreApiTable->hsa_executable_create_fn(
       profile, executable_state, options, executable);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_create");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_create");
 return tmp; 
 }
 
@@ -1198,21 +1198,21 @@ hsa_status_t HSA_API hsa_executable_create_alt(
     const char *options,
     hsa_executable_t *executable) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_create_alt");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_create_alt");
 hsa_status_t tmp = coreApiTable->hsa_executable_create_alt_fn(
       profile, default_float_rounding_mode, options, executable);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_create_alt");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_create_alt");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_executable_destroy(
     hsa_executable_t executable) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_destroy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_destroy");
 hsa_status_t tmp = coreApiTable->hsa_executable_destroy_fn(executable);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_destroy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_destroy");
 return tmp; 
 }
 
@@ -1222,11 +1222,11 @@ return tmp;
     hsa_code_object_t code_object,
     const char *options) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_load_code_object");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_load_code_object");
 hsa_status_t tmp = coreApiTable->hsa_executable_load_code_object_fn(
       executable, agent, code_object, options);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_load_code_object");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_load_code_object");
 return tmp; 
 }
 
@@ -1236,11 +1236,11 @@ hsa_status_t HSA_API hsa_executable_load_program_code_object(
     const char *options,
     hsa_loaded_code_object_t *loaded_code_object) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_load_program_code_object");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_load_program_code_object");
 hsa_status_t tmp = coreApiTable->hsa_executable_load_program_code_object_fn(
       executable, code_object_reader, options, loaded_code_object);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_load_program_code_object");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_load_program_code_object");
 return tmp; 
 }
 
@@ -1251,11 +1251,11 @@ hsa_status_t HSA_API hsa_executable_load_agent_code_object(
     const char *options,
     hsa_loaded_code_object_t *loaded_code_object) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_load_agent_code_object");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_load_agent_code_object");
 hsa_status_t tmp = coreApiTable->hsa_executable_load_agent_code_object_fn(
       executable, agent, code_object_reader, options, loaded_code_object);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_load_agent_code_object");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_load_agent_code_object");
 return tmp; 
 }
 
@@ -1263,10 +1263,10 @@ hsa_status_t HSA_API hsa_executable_freeze(
     hsa_executable_t executable,
     const char *options) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_freeze");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_freeze");
 hsa_status_t tmp = coreApiTable->hsa_executable_freeze_fn(executable, options);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_freeze");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_freeze");
 return tmp; 
 }
 
@@ -1275,10 +1275,10 @@ hsa_status_t HSA_API hsa_executable_get_info(
     hsa_executable_info_t attribute,
     void *value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_get_info");
 hsa_status_t tmp = coreApiTable->hsa_executable_get_info_fn(executable, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_get_info");
 return tmp; 
 }
 
@@ -1287,11 +1287,11 @@ hsa_status_t HSA_API hsa_executable_global_variable_define(
     const char *variable_name,
     void *address) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_global_variable_define");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_global_variable_define");
 hsa_status_t tmp = coreApiTable->hsa_executable_global_variable_define_fn(
       executable, variable_name, address);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_global_variable_define");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_global_variable_define");
 return tmp; 
 }
 
@@ -1301,11 +1301,11 @@ hsa_status_t HSA_API hsa_executable_agent_global_variable_define(
     const char *variable_name,
     void *address) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_agent_global_variable_define");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_agent_global_variable_define");
 hsa_status_t tmp = coreApiTable->hsa_executable_agent_global_variable_define_fn(
       executable, agent, variable_name, address);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_agent_global_variable_define");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_agent_global_variable_define");
 return tmp; 
 }
 
@@ -1315,11 +1315,11 @@ hsa_status_t HSA_API hsa_executable_readonly_variable_define(
     const char *variable_name,
     void *address) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_readonly_variable_define");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_readonly_variable_define");
 hsa_status_t tmp = coreApiTable->hsa_executable_readonly_variable_define_fn(
       executable, agent, variable_name, address);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_readonly_variable_define");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_readonly_variable_define");
 return tmp; 
 }
 
@@ -1327,10 +1327,10 @@ hsa_status_t HSA_API hsa_executable_validate(
     hsa_executable_t executable,
     uint32_t *result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_validate");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_validate");
 hsa_status_t tmp = coreApiTable->hsa_executable_validate_fn(executable, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_validate");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_validate");
 return tmp; 
 }
 
@@ -1339,11 +1339,11 @@ hsa_status_t HSA_API hsa_executable_validate_alt(
     const char *options,
     uint32_t *result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_validate_alt");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_validate_alt");
 hsa_status_t tmp = coreApiTable->hsa_executable_validate_alt_fn(
       executable, options, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_validate_alt");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_validate_alt");
 return tmp; 
 }
 
@@ -1355,11 +1355,11 @@ return tmp;
     int32_t call_convention,
     hsa_executable_symbol_t *symbol) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_get_symbol");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_get_symbol");
 hsa_status_t tmp = coreApiTable->hsa_executable_get_symbol_fn(
       executable, module_name, symbol_name, agent, call_convention, symbol);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_get_symbol");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_get_symbol");
 return tmp; 
 }
 
@@ -1369,11 +1369,11 @@ hsa_status_t HSA_API hsa_executable_get_symbol_by_name(
     const hsa_agent_t *agent,
     hsa_executable_symbol_t *symbol) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_get_symbol_by_name");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_get_symbol_by_name");
 hsa_status_t tmp = coreApiTable->hsa_executable_get_symbol_by_name_fn(
       executable, symbol_name, agent, symbol);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_get_symbol_by_name");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_get_symbol_by_name");
 return tmp; 
 }
 
@@ -1382,11 +1382,11 @@ hsa_status_t HSA_API hsa_executable_symbol_get_info(
     hsa_executable_symbol_info_t attribute,
     void *value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_symbol_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_symbol_get_info");
 hsa_status_t tmp = coreApiTable->hsa_executable_symbol_get_info_fn(
       executable_symbol, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_symbol_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_symbol_get_info");
 return tmp; 
 }
 
@@ -1397,11 +1397,11 @@ return tmp;
                              void *data),
     void *data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_iterate_symbols");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_iterate_symbols");
 hsa_status_t tmp = coreApiTable->hsa_executable_iterate_symbols_fn(
       executable, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_iterate_symbols");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_iterate_symbols");
 return tmp; 
 }
 
@@ -1414,11 +1414,11 @@ hsa_status_t HSA_API hsa_executable_iterate_agent_symbols(
                              void *data),
     void *data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_iterate_agent_symbols");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_iterate_agent_symbols");
 hsa_status_t tmp = coreApiTable->hsa_executable_iterate_agent_symbols_fn(
       executable, agent, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_iterate_agent_symbols");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_iterate_agent_symbols");
 return tmp; 
 }
 
@@ -1429,11 +1429,11 @@ hsa_status_t HSA_API hsa_executable_iterate_program_symbols(
                              void *data),
     void *data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_executable_iterate_program_symbols");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_executable_iterate_program_symbols");
 hsa_status_t tmp = coreApiTable->hsa_executable_iterate_program_symbols_fn(
       executable, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_executable_iterate_program_symbols");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_executable_iterate_program_symbols");
 return tmp; 
 }
 
@@ -1441,51 +1441,51 @@ hsa_status_t HSA_API hsa_status_string(
     hsa_status_t status,
     const char **status_string) {
 
-tracepoint(hsaTracer, function_entry, "hsa_status_string");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_status_string");
 hsa_status_t tmp = coreApiTable->hsa_status_string_fn(status, status_string);
 
-tracepoint(hsaTracer, function_exit, "hsa_status_string");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_status_string");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_amd_coherency_get_type(hsa_agent_t agent,
                                                 hsa_amd_coherency_type_t* type) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_coherency_get_type");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_coherency_get_type");
 hsa_status_t tmp = amdExtTable->hsa_amd_coherency_get_type_fn(agent, type);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_coherency_get_type");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_coherency_get_type");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_amd_coherency_set_type(hsa_agent_t agent,
                                                 hsa_amd_coherency_type_t type) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_coherency_set_type");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_coherency_set_type");
 hsa_status_t tmp = amdExtTable->hsa_amd_coherency_set_type_fn(agent, type);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_coherency_set_type");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_coherency_set_type");
 return tmp; 
 }
 
 hsa_status_t HSA_API
     hsa_amd_profiling_set_profiler_enabled(hsa_queue_t* queue, int enable) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_profiling_set_profiler_enabled");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_profiling_set_profiler_enabled");
 hsa_status_t tmp = amdExtTable->hsa_amd_profiling_set_profiler_enabled_fn(
                                      queue, enable);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_profiling_set_profiler_enabled");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_profiling_set_profiler_enabled");
 return tmp; 
 }
 
 hsa_status_t HSA_API
   hsa_amd_profiling_async_copy_enable(bool enable) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_profiling_async_copy_enable");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_profiling_async_copy_enable");
 hsa_status_t tmp = amdExtTable->hsa_amd_profiling_async_copy_enable_fn(enable);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_profiling_async_copy_enable");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_profiling_async_copy_enable");
 return tmp; 
 }
 
@@ -1493,11 +1493,11 @@ hsa_status_t HSA_API hsa_amd_profiling_get_dispatch_time(
     hsa_agent_t agent, hsa_signal_t signal,
     hsa_amd_profiling_dispatch_time_t* time) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_profiling_get_dispatch_time");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_profiling_get_dispatch_time");
 hsa_status_t tmp = amdExtTable->hsa_amd_profiling_get_dispatch_time_fn(
                                      agent, signal, time); 
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_profiling_get_dispatch_time");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_profiling_get_dispatch_time");
 return tmp; 
 }
 
@@ -1505,10 +1505,10 @@ hsa_status_t HSA_API
   hsa_amd_profiling_get_async_copy_time(
     hsa_signal_t hsa_signal, hsa_amd_profiling_async_copy_time_t* time) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_profiling_get_async_copy_time");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_profiling_get_async_copy_time");
 hsa_status_t tmp = amdExtTable->hsa_amd_profiling_get_async_copy_time_fn(hsa_signal, time);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_profiling_get_async_copy_time");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_profiling_get_async_copy_time");
 return tmp; 
 }
 
@@ -1517,11 +1517,11 @@ hsa_status_t HSA_API
                                                     uint64_t agent_tick,
                                                     uint64_t* system_tick) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_profiling_convert_tick_to_system_domain");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_profiling_convert_tick_to_system_domain");
 hsa_status_t tmp = amdExtTable->hsa_amd_profiling_convert_tick_to_system_domain_fn(
                                      agent, agent_tick, system_tick);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_profiling_convert_tick_to_system_domain");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_profiling_convert_tick_to_system_domain");
 return tmp; 
 }
 
@@ -1531,21 +1531,21 @@ hsa_status_t HSA_API
                                  hsa_signal_value_t value,
                                  hsa_amd_signal_handler handler, void* arg) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_signal_async_handler");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_signal_async_handler");
 hsa_status_t tmp = amdExtTable->hsa_amd_signal_async_handler_fn(
                                      signal, cond, value, handler, arg);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_signal_async_handler");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_signal_async_handler");
 return tmp; 
 }
 
 hsa_status_t HSA_API
     hsa_amd_async_function(void (*callback)(void* arg), void* arg) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_async_function");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_async_function");
 hsa_status_t tmp = amdExtTable->hsa_amd_async_function_fn(callback, arg);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_async_function");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_async_function");
 return tmp; 
 }
 
@@ -1556,13 +1556,13 @@ uint32_t HSA_API
                             hsa_wait_state_t wait_hint,
                             hsa_signal_value_t* satisfying_value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_signal_wait_any");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_signal_wait_any");
 uint32_t tmp = amdExtTable->hsa_amd_signal_wait_any_fn(
                                      signal_count, signals,
                                      conds, values, timeout_hint,
                                      wait_hint, satisfying_value);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_signal_wait_any");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_signal_wait_any");
 return tmp; 
 }
 
@@ -1570,11 +1570,11 @@ hsa_status_t HSA_API hsa_amd_queue_cu_set_mask(const hsa_queue_t* queue,
                                                uint32_t num_cu_mask_count,
                                                const uint32_t* cu_mask) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_queue_cu_set_mask");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_queue_cu_set_mask");
 hsa_status_t tmp = amdExtTable->hsa_amd_queue_cu_set_mask_fn(
                                      queue, num_cu_mask_count, cu_mask);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_queue_cu_set_mask");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_queue_cu_set_mask");
 return tmp; 
 }
 
@@ -1583,11 +1583,11 @@ hsa_status_t HSA_API
                                  hsa_amd_memory_pool_info_t attribute,
                                  void* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_pool_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_pool_get_info");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_pool_get_info_fn(
                                      memory_pool, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_pool_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_pool_get_info");
 return tmp; 
 }
 
@@ -1596,11 +1596,11 @@ hsa_status_t HSA_API hsa_amd_agent_iterate_memory_pools(
     hsa_status_t (*callback)(hsa_amd_memory_pool_t memory_pool, void* data),
     void* data) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_agent_iterate_memory_pools");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_agent_iterate_memory_pools");
 hsa_status_t tmp = amdExtTable->hsa_amd_agent_iterate_memory_pools_fn(
                                      agent, callback, data);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_agent_iterate_memory_pools");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_agent_iterate_memory_pools");
 return tmp; 
 }
 
@@ -1608,20 +1608,20 @@ hsa_status_t HSA_API
     hsa_amd_memory_pool_allocate(hsa_amd_memory_pool_t memory_pool, size_t size,
                                  uint32_t flags, void** ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_pool_allocate");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_pool_allocate");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_pool_allocate_fn(
                                      memory_pool, size, flags, ptr);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_pool_allocate");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_pool_allocate");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_amd_memory_pool_free(void* ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_pool_free");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_pool_free");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_pool_free_fn(ptr);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_pool_free");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_pool_free");
 return tmp; 
 }
 
@@ -1632,12 +1632,12 @@ hsa_status_t HSA_API
                               const hsa_signal_t* dep_signals,
                               hsa_signal_t completion_signal) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_async_copy");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_async_copy");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_async_copy_fn(
                                      dst, dst_agent, src, src_agent, size,
                                      num_dep_signals, dep_signals, completion_signal);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_async_copy");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_async_copy");
 return tmp; 
 }
 
@@ -1645,11 +1645,11 @@ hsa_status_t HSA_API hsa_amd_agent_memory_pool_get_info(
     hsa_agent_t agent, hsa_amd_memory_pool_t memory_pool,
     hsa_amd_agent_memory_pool_info_t attribute, void* value) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_agent_memory_pool_get_info");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_agent_memory_pool_get_info");
 hsa_status_t tmp = amdExtTable->hsa_amd_agent_memory_pool_get_info_fn(
                                      agent, memory_pool, attribute, value);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_agent_memory_pool_get_info");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_agent_memory_pool_get_info");
 return tmp; 
 }
 
@@ -1657,11 +1657,11 @@ hsa_status_t HSA_API
     hsa_amd_agents_allow_access(uint32_t num_agents, const hsa_agent_t* agents,
                                 const uint32_t* flags, const void* ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_agents_allow_access");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_agents_allow_access");
 hsa_status_t tmp = amdExtTable->hsa_amd_agents_allow_access_fn(
                                      num_agents, agents, flags, ptr);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_agents_allow_access");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_agents_allow_access");
 return tmp; 
 }
 
@@ -1670,11 +1670,11 @@ hsa_status_t HSA_API
                                     hsa_amd_memory_pool_t dst_memory_pool,
                                     bool* result) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_pool_can_migrate");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_pool_can_migrate");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_pool_can_migrate_fn(
                                      src_memory_pool, dst_memory_pool, result);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_pool_can_migrate");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_pool_can_migrate");
 return tmp; 
 }
 
@@ -1682,11 +1682,11 @@ hsa_status_t HSA_API hsa_amd_memory_migrate(const void* ptr,
                                             hsa_amd_memory_pool_t memory_pool,
                                             uint32_t flags) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_migrate");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_migrate");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_migrate_fn(
                                      ptr, memory_pool, flags);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_migrate");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_migrate");
 return tmp; 
 }
 
@@ -1694,31 +1694,31 @@ hsa_status_t HSA_API hsa_amd_memory_lock(void* host_ptr, size_t size,
                                          hsa_agent_t* agents, int num_agent,
                                          void** agent_ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_lock");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_lock");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_lock_fn(
                                      host_ptr, size, agents, num_agent, agent_ptr);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_lock");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_lock");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_amd_memory_unlock(void* host_ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_unlock");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_unlock");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_unlock_fn(host_ptr);
 
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_unlock");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_unlock");
 return tmp; 
 }
 
 hsa_status_t HSA_API
     hsa_amd_memory_fill(void* ptr, uint32_t value, size_t count) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_memory_fill");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_fill");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_fill_fn(ptr, value, count);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_memory_fill");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_fill");
 return tmp; 
 }
 
@@ -1731,21 +1731,21 @@ hsa_status_t HSA_API hsa_amd_interop_map_buffer(uint32_t num_agents,
                                         size_t* metadata_size, 
                                         const void** metadata) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_interop_map_buffer");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_interop_map_buffer");
 hsa_status_t tmp = amdExtTable->hsa_amd_interop_map_buffer_fn(
                                      num_agents, agents, interop_handle,    
                                      flags, size, ptr, metadata_size, metadata);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_interop_map_buffer");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_interop_map_buffer");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_amd_interop_unmap_buffer(void* ptr) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_interop_unmap_buffer");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_interop_unmap_buffer");
 hsa_status_t tmp = amdExtTable->hsa_amd_interop_unmap_buffer_fn(ptr);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_interop_unmap_buffer");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_interop_unmap_buffer");
 return tmp; 
 }
 
@@ -1757,30 +1757,30 @@ hsa_status_t HSA_API hsa_amd_image_create(
   hsa_access_permission_t access_permission,
   hsa_ext_image_t *image) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_image_create");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_image_create");
 hsa_status_t tmp = amdExtTable->hsa_amd_image_create_fn(agent, image_descriptor,
                           image_layout, image_data, access_permission, image);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_image_create");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_image_create");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_amd_ipc_signal_create(hsa_signal_t signal, hsa_amd_ipc_signal_t* handle) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_ipc_signal_create");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_ipc_signal_create");
 hsa_status_t tmp = amdExtTable->hsa_amd_ipc_signal_create_fn(signal, handle);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_ipc_signal_create");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_ipc_signal_create");
 return tmp; 
 }
 
 hsa_status_t HSA_API hsa_amd_ipc_signal_attach(const hsa_amd_ipc_signal_t* handle,
                                                hsa_signal_t* signal) {
 
-tracepoint(hsaTracer, function_entry, "hsa_amd_ipc_signal_attach");
+tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_ipc_signal_attach");
 hsa_status_t tmp = amdExtTable->hsa_amd_ipc_signal_attach_fn(handle, signal);
 
-tracepoint(hsaTracer, function_exit, "hsa_amd_ipc_signal_attach");
+tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_ipc_signal_attach");
 return tmp; 
 }
 
