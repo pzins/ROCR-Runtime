@@ -1611,6 +1611,7 @@ hsa_status_t HSA_API
 tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_pool_allocate");
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_pool_allocate_fn(
                                      memory_pool, size, flags, ptr);
+tracepoint(hsaTracer, pool_memory_allocate, memory_pool.handle, (uint64_t)(*ptr), size);
 
 tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_pool_allocate");
 return tmp; 
@@ -1619,6 +1620,7 @@ return tmp;
 hsa_status_t HSA_API hsa_amd_memory_pool_free(void* ptr) {
 
 tracepoint(hsaTracer, function_entry, "hsa_api", "hsa_amd_memory_pool_free");
+tracepoint(hsaTracer, pool_memory_free, 0, (uint64_t)ptr, 0);
 hsa_status_t tmp = amdExtTable->hsa_amd_memory_pool_free_fn(ptr);
 
 tracepoint(hsaTracer, function_exit, "hsa_api", "hsa_amd_memory_pool_free");
